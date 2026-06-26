@@ -80,16 +80,6 @@ DSA-Visualizer/
 └── README.md
 ```
 
-## Screenshots
-
-Add screenshots of:
-
-* Bubble Sort Visualization
-* Merge Sort Visualization
-* Quick Sort Visualization
-* Binary Search Visualization
-* Main Dashboard
-
 ## Future Improvements
 
 * Linked List Visualizer
