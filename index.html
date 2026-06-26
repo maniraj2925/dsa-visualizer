@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">DV</span>
+        <div>
+          <h1>DSA Visualizer</h1>
+          <p>Interactive workspace for data structures and algorithms</p>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Visualizer controls">
+        <label class="field">
+          <span>Category</span>
+          <select id="categorySelect">
+            <option>Arrays</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Algorithm</span>
+          <select id="algorithmSelect">
+            <option value="bubbleSort">Bubble Sort</option>
+            <option value="selectionSort">Selection Sort</option>
+            <option value="insertionSort">Insertion Sort</option>
+            <option value="mergeSort">Merge Sort</option>
+            <option value="quickSort">Quick Sort</option>
+            <option value="binarySearch">Binary Search</option>
+          </select>
+        </label>
+
+        <label class="field target-field">
+          <span>Target</span>
+          <input id="targetInput" type="number" min="20" max="400" value="100">
+        </label>
+
+        <label class="field slider-field">
+          <span>Array Size</span>
+          <input id="arraySizeRange" type="range" min="10" max="100" value="50">
+        </label>
+
+        <label class="field slider-field">
+          <span>Animation Speed</span>
+          <input id="speedRange" type="range" min="10" max="500" value="100" step="10">
+        </label>
+
+        <button class="control-button primary" type="button" id="runButton">Run</button>
+        <button class="control-button" type="button" id="generateArrayButton">Generate Array</button>
+        <button class="control-button" type="button" id="resetButton">Reset</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="panel info-panel" aria-label="Visualizer status">
+        <h2>Workspace</h2>
+        <dl>
+          <div>
+            <dt>Mode</dt>
+            <dd id="modeValue">UI scaffold</dd>
+          </div>
+          <div>
+            <dt>Selected</dt>
+            <dd id="selectedValue">Arrays</dd>
+          </div>
+          <div>
+            <dt>Speed</dt>
+            <dd id="speedValue">100ms</dd>
+          </div>
+          <div>
+            <dt>Array Size</dt>
+            <dd id="arraySizeValue">0</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <section class="visualization-area" aria-label="Main visualization area">
+        <div class="visual-grid" aria-hidden="true"></div>
+        <div class="array-status-message" id="arrayStatusMessage" aria-live="polite"></div>
+        <div class="array-values-panel" id="arrayValuesPanel" aria-label="Generated array values"></div>
+        <div class="array-container" id="arrayContainer" aria-label="Generated array bars"></div>
+        <div class="empty-state">
+          <div class="empty-icon" aria-hidden="true"></div>
+          <h2>Visualization Area</h2>
+          <p>Algorithm animations will appear here in the next phase.</p>
+        </div>
+      </section>
+
+      <aside class="side-column" aria-label="Visualizer details">
+        <section class="panel legend-panel" aria-label="Legend">
+          <h2>Legend</h2>
+          <ul>
+            <li><span class="dot idle"></span>Idle node</li>
+            <li><span class="dot current"></span>Current index</li>
+            <li><span class="dot minimum"></span>Minimum</li>
+            <li><span class="dot comparing"></span>Comparing</li>
+            <li><span class="dot shifting"></span>Shifting</li>
+            <li><span class="dot inserting"></span>Inserting</li>
+            <li><span class="dot dividing"></span>Dividing</li>
+            <li><span class="dot merging"></span>Merging</li>
+            <li><span class="dot pivot"></span>Pivot</li>
+            <li><span class="dot partitioning"></span>Partitioning</li>
+            <li><span class="dot left"></span>Left</li>
+            <li><span class="dot middle"></span>Middle</li>
+            <li><span class="dot right"></span>Right</li>
+            <li><span class="dot eliminated"></span>Eliminated</li>
+            <li><span class="dot active"></span>Swapped</li>
+            <li><span class="dot complete"></span>Completed</li>
+          </ul>
+        </section>
+
+        <section class="panel stats-panel" aria-label="Algorithm statistics">
+          <h2>Statistics</h2>
+          <dl>
+            <div>
+              <dt>Algorithm</dt>
+              <dd id="algorithmNameValue">Bubble Sort</dd>
+            </div>
+            <div>
+              <dt>Comparisons</dt>
+              <dd id="comparisonsValue">0</dd>
+            </div>
+            <div>
+              <dt>Swaps</dt>
+              <dd id="swapsValue">0</dd>
+            </div>
+            <div>
+              <dt>Time</dt>
+              <dd id="timeComplexityValue">O(n^2)</dd>
+            </div>
+            <div>
+              <dt>Space</dt>
+              <dd id="spaceComplexityValue">O(1)</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
